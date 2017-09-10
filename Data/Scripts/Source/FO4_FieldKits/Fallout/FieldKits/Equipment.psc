@@ -117,8 +117,8 @@ Function CreateBench(Furniture aFurniture)
 	If (Reference)
 		Reference.SetAngle(0.0, 0.0, Reference.GetAngleZ())
 		RegisterForRemoteEvent(Player, "OnGetUp")
-		InputEnableLayer input = InputEnableLayer.Create()
-		input.DisablePlayerControls()
+		InputEnableLayer inputLayer = InputEnableLayer.Create()
+		inputLayer.DisablePlayerControls()
 
 		If (Reference.Activate(Player, DefaultProcessingOnly))
 			WriteLine(Log, "Activated new bench. " + Reference)
@@ -128,7 +128,7 @@ Function CreateBench(Furniture aFurniture)
 			Fallout_FieldKits_BenchFailedMessage.Show()
 		EndIf
 
-		input.EnablePlayerControls()
+		inputLayer.EnablePlayerControls()
 	Else
 		WriteLine(Log, "Could not create a new bench.")
 		DestroyBench()
